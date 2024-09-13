@@ -1,0 +1,28 @@
+@model AuthAuthzDemo.Models.LoginView;
+
+<h2>Login</h2>
+
+<form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true">
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div>
+    <label asp-for="UserName">username</label>
+    <input type="text" id="UserName" asp-for="UserName" required/>
+    <span asp-validation-for="UserName" class="text-danger"></span>
+</div>
+
+<div>
+    <label asp-for="Password">password</label>
+    <input type="text" id="Password" asp-for="Password" required/>
+    <span asp-validation-for="Password" class="text-danger"></span>
+</div>
+<div>
+    <button type="submit">Login</button>
+    <a href="@Url.Action("CognitoLogin", "Account")" class="btn btn-primary" >Login with Cognito</a>
+    <a href="@Url.Action("GoogleLogin", "Account")" class="btn btn-primary">Login with Google</a>
+
+
+</div>
+
+</form>
